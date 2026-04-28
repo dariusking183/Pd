@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra PD Control Center</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #050505;
+    color: white;
+}
+
+/* TOP BAR */
+.topbar {
+    background: black;
+    padding: 18px;
+    text-align: center;
+    border-bottom: 2px solid #d4af37;
+    font-weight: bold;
+}
+
+/* STATUS BAR */
+.status {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px;
+    background: #111;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* GRID DASHBOARD */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: #111;
+    border: 1px solid #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.card:hover {
+    border: 1px solid #d4af37;
+}
+
+.card h3 {
+    color: #d4af37;
+    margin: 0;
+}
+
+/* PAGE */
+.page {
+    display: none;
+    padding: 20px;
+}
+
+.back {
+    background: #d4af37;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+/* BOX */
+.box {
+    background: #111;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #2a2a2a;
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    color: #777;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+👑 ULTRA PD CONTROL CENTER
+</div>
+
+<div class="status">
+<div>SECURITY: ACTIVE</div>
+<div>ANTI-NUKE: ENABLED</div>
+<div>LOG SYSTEM: ONLINE</div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="home">
+<div class="grid">
+
+<div class="card" onclick="openPage('tickets')"><h3>🎫 Tickets</h3><p>General support system</p></div>
+<div class="card" onclick="openPage('reports')"><h3>📁 Reports</h3><p>Incident submissions</p></div>
+<div class="card" onclick="openPage('serious')"><h3>🚨 Critical Incidents</h3><p>Nuking / abuse reports</p></div>
+<div class="card" onclick="openPage('chain')"><h3>👑 Chain of Command</h3><p>Escalation system</p></div>
+<div class="card" onclick="openPage('patrol')"><h3>🚓 Patrol Logs</h3><p>Activity tracking</p></div>
+<div class="card" onclick="openPage('cases')"><h3>🧾 Case Files</h3><p>Investigation logs</p></div>
+<div class="card" onclick="openPage('security')"><h3>🛡 Security Hub</h3><p>Anti-nuke monitoring</p></div>
+<div class="card" onclick="openPage('staff')"><h3>👮 Staff Hub</h3><p>Rank + hierarchy control</p></div>
+
+</div>
+</div>
+
+<!-- TICKETS -->
+<div id="tickets" class="page">
+<button class="back" onclick="back()">⬅ Back</button>
+<div class="box">
+<h2>🎫 Ticket System</h2>
+<p>Used for general questions and support requests.</p>
+<p>All tickets are logged automatically.</p>
+<p>Abuse = punishment.</p>
+</div>
+</div>
+
+<!-- REPORTS -->
+<div id="reports" class="page">
+<button class="back" onclick="back()">⬅ Back</button>
+<div class="box">
+<h2>📁 Reports System</h2>
+<p>Submit detailed incident reports with evidence.</p>
+<p>Must include full explanation and context.</p>
+<p>False reporting leads to disciplinary action.</p>
+</div>
+</div>
+
+<!-- SERIOUS -->
+<div id="serious" class="page">
+<button class="back" onclick="back()">⬅ Back</button>
+<div class="box">
+<h2>🚨 Critical Incidents</h2>
+<p>For nuking, exploiting, mass abuse, or server threats.</p>
+<p>Automatically escalated to High Command.</p>
+<p>If confirmed → Executive Officers review case.</p>
+</div>
+</div>
+
+<!-- CHAIN -->
+<div id="chain" class="page">
+<button class="back" onclick="back()">⬅ Back</button>
+<div class="box">
+<h2>👑 Chain of Command</h2>
+<p>Step 1: High Command reviews case</p>
+<p>Step 2: Executive Officers analyze</p>
+<p>Step 3: Final decision issued</p>
+<p>Denied cases are permanently logged.</p>
+</div>
+</div>
+
+<!-- PATROL -->
+<div id="patrol" class="page">
+<button class="back" onclick="back()">⬅ Back</button>
+<div class="box">
+<h2>🚓 Patrol System</h2>
+<p>Officers must log patrol activity.</p>
+<p>Used for performance tracking and promotions.</p>
+<p>Inactive members may be demoted.</p>
+</div>
+</div>
+
+<!-- CASES -->
+<div id="cases" class="page">
+<button class="back" onclick="back()">⬅ Back</button>
+<div class="box">
+<h2>🧾 Case Files</h2>
+<p>All investigations are stored here.</p>
+<p>Includes evidence, logs, and final rulings.</p>
+<p>Only High Command and above can modify cases.</p>
+</div>
+</div>
+
+<!-- SECURITY -->
+<div id="security" class="page">
+<button class="back" onclick="back()">⬅ Back</button>
+<div class="box">
+<h2>🛡 Security Hub</h2>
+<p>Monitors server threats in real-time.</p>
+<p>Detects spam, nuking attempts, and mass actions.</p>
+<p>Alerts High Command instantly on suspicious activity.</p>
+</div>
+</div>
+
+<!-- STAFF -->
+<div id="staff" class="page">
+<button class="back" onclick="back()">⬅ Back</button>
+<div class="box">
+<h2>👮 Staff Hierarchy</h2>
+<p>Low Ranks → Middle Ranks → High Command → Executive Officers</p>
+<p>Executive Officers = final authority</p>
+<p>All disciplinary decisions follow this structure.</p>
+</div>
+</div>
+
+<div class="footer">
+Made by Darius
+</div>
+
+<script>
+function openPage(id){
+    document.getElementById("home").style.display = "none";
+    document.getElementById(id).style.display = "block";
+}
+
+function back(){
+    document.querySelectorAll(".page").forEach(p => p.style.display = "none");
+    document.getElementById("home").style.display = "block";
+}
+</script>
+
+</body>
+</html>
